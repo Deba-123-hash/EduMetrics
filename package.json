@@ -1,0 +1,36 @@
+{
+  "name": "eduinsight-ai",
+  "version": "1.0.0",
+  "description": "AI-Powered Student Performance Analytics and Prediction Dashboard",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "check:env": "node scripts/check-environment.js",
+    "validate:structure": "node scripts/validate-structure.js",
+    "dev": "npm run dev --workspace=client",
+    "client": "npm run dev --workspace=client",
+    "server": "npm run dev --workspace=server",
+    "build": "npm run build --workspace=client",
+    "test": "node scripts/run-all-tests.js",
+    "lint": "npm run lint --workspaces --if-present",
+    "clean": "node scripts/clean.js"
+  },
+  "keywords": [
+    "education",
+    "analytics",
+    "ai",
+    "student-performance",
+    "dashboard",
+    "react",
+    "express",
+    "postgresql",
+    "mca-major-project"
+  ],
+  "author": "EduInsight AI Team",
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <rect x="4" y="8" width="32" height="32" rx="8" fill="#1D4ED8"/>
+  <path d="M20 14L10 19L20 24L30 19L20 14Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 21V27C14 28.5 16.7 29.5 20 29.5C23.3 29.5 26 28.5 26 27V21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="46" y="30" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#0F172A">EduInsight</text>
+  <text x="154" y="30" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#1D4ED8">AI</text>
+</svg>
