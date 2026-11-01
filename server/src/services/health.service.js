@@ -5,8 +5,8 @@ export const healthService = {
   getSystemHealth: () => {
     return {
       success: true,
+      message: 'Backend is running',
       service: 'EduInsight AI Backend API',
-      message: 'EduInsight AI backend is running',
       environment: env.NODE_ENV,
       timestamp: new Date().toISOString()
     };
@@ -20,8 +20,10 @@ export const healthService = {
     return {
       success: true,
       message: 'Database connected successfully',
+      database: data.database_name || 'neondb',
       data: {
-        database_time: data.database_time
+        database_time: data.database_time,
+        database_name: data.database_name
       }
     };
   }

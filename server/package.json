@@ -10,6 +10,7 @@
     "db:migrate": "node src/database/migrate.js",
     "db:seed": "node src/database/seed.js",
     "db:check": "node src/database/check.js",
+    "db:test": "node src/config/testDatabase.js",
     "test": "node --test",
     "lint": "eslint src"
   },

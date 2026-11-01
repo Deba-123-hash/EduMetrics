@@ -1,5 +1,6 @@
 export const API_ENDPOINTS = {
   HEALTH: '/health',
+  HEALTH_DB: '/health/db',
   HEALTH_DATABASE: '/health/database',
   AUTH: {
     LOGIN: '/auth/login',

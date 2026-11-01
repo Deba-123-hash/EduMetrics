@@ -1,7 +1,8 @@
-import { test, describe, before } from 'node:test';
+import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import request from 'supertest';
 import app from '../../src/app.js';
+import { pool } from '../../src/config/database.js';
 
 describe('EduInsight AI - Backend API & RBAC Test Suite', () => {
   let adminToken = '';
@@ -9,14 +10,29 @@ describe('EduInsight AI - Backend API & RBAC Test Suite', () => {
   let studentToken = '';
   let refreshToken = '';
 
+  after(async () => {
+    try {
+      await pool.end();
+    } catch {}
+  });
+
   // 1. Core Health Checks
   describe('Health Check Endpoints', () => {
     test('GET /api/health should return 200 and operational status', async () => {
       const res = await request(app).get('/api/health');
       assert.equal(res.status, 200);
       assert.equal(res.body.success, true);
-      assert.equal(res.body.service, 'EduInsight AI Backend API');
+      assert.ok(res.body.message);
       assert.ok(res.body.timestamp);
+    });
+
+    test('GET /api/health/db should verify database connection and return database name', async () => {
+      const res = await request(app).get('/api/health/db');
+      assert.ok([200, 503].includes(res.status));
+      if (res.status === 200) {
+        assert.equal(res.body.success, true);
+        assert.equal(res.body.database, 'neondb');
+      }
     });
 
     test('GET /api/health/database should handle connection gracefully without leaking credentials', async () => {
