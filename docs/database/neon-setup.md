@@ -193,3 +193,4 @@ npm run db:check --workspace=server
 | `password authentication failed for user` | Invalid credentials or rotated password. | Reset password in the Neon Console and update `DATABASE_URL` in `server/.env`. |
 | `remaining connection slots are reserved for non-replication superuser connections` | Connection leak or pool size exceeded. | Ensure pool clients are released via `client.release()` in `finally` blocks, and connect via the `-pooler` endpoint. |
 | `endpoint is suspended / compute auto-suspend` | Serverless compute scaled down after inactivity. | Neon compute resumes automatically on incoming requests (~500ms wake-up). Increase `connectionTimeoutMillis` to `10000`. |
+

@@ -3,16 +3,20 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { FolderOpen } from 'lucide-react';
 import Button from './Button.jsx';
+import EmptyState3D from '../../three/components/EmptyState3D.jsx';
+import { GlassCard } from './GlassCard.jsx';
 
 export function EmptyState({
   title = 'No records found',
   description = 'There is currently no data available for this view.',
   actionLabel,
   onAction,
-  icon: Icon = FolderOpen
+  icon: Icon = FolderOpen,
+  use3D = true
 }) {
   return (
-    <Box
+    <GlassCard
+      hover={false}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -20,27 +24,43 @@ export function EmptyState({
         justifyContent: 'center',
         textAlign: 'center',
         py: 6,
-        px: 2,
-        borderRadius: 2,
-        bgcolor: 'background.paper',
-        border: '1px dashed #cbd5e1'
+        px: 3,
+        borderStyle: 'dashed',
+        borderColor: 'divider'
       }}
     >
-      <Box sx={{ color: 'text.disabled', mb: 2 }}>
-        <Icon size={48} strokeWidth={1.5} />
+      <Box sx={{ mb: 2 }}>
+        {use3D ? (
+          <EmptyState3D size={85} />
+        ) : (
+          <Box
+            sx={{
+              p: 2,
+              borderRadius: '50%',
+              bgcolor: 'action.hover',
+              color: 'text.secondary',
+              display: 'inline-flex'
+            }}
+          >
+            <Icon size={40} strokeWidth={1.5} />
+          </Box>
+        )}
       </Box>
-      <Typography variant="h6" color="text.primary" gutterBottom>
+
+      <Typography variant="h6" sx={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 600, mb: 0.5 }}>
         {title}
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 400, mb: actionLabel ? 3 : 0 }}>
+
+      <Typography variant="body2" sx={{ color: 'text.secondary', maxWidth: 420, mb: actionLabel ? 3 : 0 }}>
         {description}
       </Typography>
+
       {actionLabel && onAction && (
-        <Button variant="contained" onClick={onAction} size="small">
+        <Button variant="contained" color="primary" onClick={onAction} size="small" sx={{ borderRadius: 2 }}>
           {actionLabel}
         </Button>
       )}
-    </Box>
+    </GlassCard>
   );
 }
 

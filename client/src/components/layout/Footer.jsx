@@ -8,30 +8,32 @@ export function Footer() {
     <Box
       component="footer"
       sx={{
-        py: 3,
+        py: 2.5,
         px: 3,
         mt: 'auto',
-        borderTop: '1px solid #e2e8f0',
-        bgcolor: '#ffffff',
+        borderTop: '1px solid',
+        borderColor: 'divider',
+        bgcolor: 'background.paper',
         display: 'flex',
         flexDirection: { xs: 'column', sm: 'row' },
         justifyContent: 'space-between',
         alignItems: 'center',
-        gap: 1
+        gap: 1.5,
+        transition: 'background-color 0.25s ease, border-color 0.25s ease'
       }}
     >
-      <Typography variant="body2" color="text.secondary">
-        © 2026 EduInsight AI. MCA Final-Year Major Project.
+      <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '0.825rem' }}>
+        © 2026 EduInsight AI • MCA Final-Year Major Project
       </Typography>
-      <Box sx={{ display: 'flex', gap: 2 }}>
-        <Link href="#privacy" variant="body2" color="text.secondary" underline="hover">
+      <Box sx={{ display: 'flex', gap: 2.5 }}>
+        <Link href="#privacy" variant="body2" sx={{ color: 'text.secondary', fontSize: '0.825rem' }} underline="hover">
           Privacy Policy
         </Link>
-        <Link href="#terms" variant="body2" color="text.secondary" underline="hover">
+        <Link href="#terms" variant="body2" sx={{ color: 'text.secondary', fontSize: '0.825rem' }} underline="hover">
           Terms of Service
         </Link>
-        <Link href="#docs" variant="body2" color="text.secondary" underline="hover">
-          Documentation
+        <Link href="#docs" variant="body2" sx={{ color: 'text.secondary', fontSize: '0.825rem' }} underline="hover">
+          System Docs
         </Link>
       </Box>
     </Box>

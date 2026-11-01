@@ -69,3 +69,4 @@ SELECT id, migration_name, applied_at FROM schema_migrations ORDER BY id ASC;
 1. **Forward Migrations Only in Production**: In production environments, never alter existing migration files that have already been deployed. Always write a new incremented migration (e.g., `011_add_column_to_table.sql`).
 2. **Schema Branching in Neon**: Neon supports instant copy-on-write branching. Before applying risky DDL migrations to the primary branch, developers can branch `main` to a test branch (e.g., `test-migration-011`), verify `npm run db:migrate`, and then merge or apply directly.
 3. **Data Loss Prevention**: Never issue destructive commands (`DROP TABLE`, `TRUNCATE`) in existing migration files. Use non-destructive `ALTER TABLE ... ADD COLUMN` or deprecation flags.
+

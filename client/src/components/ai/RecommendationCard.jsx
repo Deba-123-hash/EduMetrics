@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { Target, CheckCircle2 } from 'lucide-react';
-import Button from '../common/Button.jsx';
+import { GradientCard } from '../common/GlassCard.jsx';
+import { PremiumButton } from '../common/PremiumButton.jsx';
 
 export function RecommendationCard({
   title,
@@ -21,11 +21,13 @@ export function RecommendationCard({
   };
 
   return (
-    <Card sx={{ p: 2.5, mb: 2, border: '1px solid #e2e8f0' }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Target size={18} color="#4f46e5" />
-          <Typography variant="subtitle1" fontWeight={600}>
+    <GradientCard hover={true} sx={{ p: 2.8, mb: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1.5 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2 }}>
+          <Box sx={{ p: 0.8, borderRadius: 2, bgcolor: 'action.hover', color: 'secondary.main', display: 'flex' }}>
+            <Target size={17} />
+          </Box>
+          <Typography variant="subtitle1" sx={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 700 }}>
             {title}
           </Typography>
         </Box>
@@ -33,31 +35,32 @@ export function RecommendationCard({
           label={`${priority.toUpperCase()} PRIORITY`}
           size="small"
           color={priorityColors[priority] || 'default'}
-          sx={{ fontWeight: 600, fontSize: '0.65rem' }}
+          sx={{ fontWeight: 700, fontSize: '0.68rem', height: 22 }}
         />
       </Box>
 
       {subject && (
-        <Typography variant="caption" color="primary.main" fontWeight={600} sx={{ display: 'block', mb: 1 }}>
+        <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 700, display: 'block', mb: 1 }}>
           Target Subject: {subject}
         </Typography>
       )}
 
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2, lineHeight: 1.6 }}>
         {description}
       </Typography>
 
       {onComplete && !isCompleted && (
-        <Button
+        <PremiumButton
           variant="outlined"
+          color="primary"
           size="small"
-          startIcon={<CheckCircle2 size={16} />}
+          startIcon={<CheckCircle2 size={15} />}
           onClick={onComplete}
         >
           Mark as Completed
-        </Button>
+        </PremiumButton>
       )}
-    </Card>
+    </GradientCard>
   );
 }
 

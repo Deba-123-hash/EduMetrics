@@ -153,3 +153,4 @@ $$ language 'plpgsql';
 ```
 
 Applied to: `users`, `departments`, `classes`, `subjects`, `students`, `faculty`, `exams`, `marks`, `recommendations`, and `system_settings`.
+

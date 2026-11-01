@@ -25,9 +25,21 @@ export default defineConfig({
     chunkSizeWarningLimit: 1200,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-core': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-mui': ['@mui/material', '@emotion/react', '@emotion/styled']
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('three')) {
+              return 'vendor-three';
+            }
+            if (id.includes('@react-three')) {
+              return 'vendor-r3f';
+            }
+            if (id.includes('framer-motion') || id.includes('gsap')) {
+              return 'vendor-motion';
+            }
+            if (id.includes('recharts')) {
+              return 'vendor-charts';
+            }
+          }
         }
       }
     }

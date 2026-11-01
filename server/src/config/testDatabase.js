@@ -74,3 +74,4 @@ if (process.argv[1] && process.argv[1].endsWith('testDatabase.js')) {
 }
 
 export default testDatabaseConnection;
+
