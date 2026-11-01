@@ -87,3 +87,4 @@ Fonts are loaded asynchronously from Google Fonts:
 - **`GlassCard` & `GradientCard`**: Glassmorphic containers with `backdrop-filter: blur(16px)`, theme-matching borders, and optional linear gradient accent borders.
 - **`ThemeSwitcher`**: Minimalist navbar dropdown with live color dots and SVG check indicators.
 - **`AnimatedCounter`**: Numerical statistic counters.
+

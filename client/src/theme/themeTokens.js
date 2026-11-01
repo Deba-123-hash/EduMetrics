@@ -409,3 +409,4 @@ export const DEFAULT_THEME_ID = THEME_IDS.MIDNIGHT_DARK;
 export function getThemeToken(themeId) {
   return themeTokens[themeId] || themeTokens[DEFAULT_THEME_ID];
 }
+

@@ -177,3 +177,4 @@ export function AIIntelligenceHero({ height = '100%', interactive = true }) {
 }
 
 export default AIIntelligenceHero;
+

@@ -45,3 +45,4 @@ export function setStoredThemeMode(mode) {
     console.warn('Unable to save theme mode to localStorage:', e);
   }
 }
+

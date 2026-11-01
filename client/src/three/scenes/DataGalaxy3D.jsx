@@ -126,3 +126,4 @@ export function DataGalaxy3D({ height = 280 }) {
 }
 
 export default DataGalaxy3D;
+
